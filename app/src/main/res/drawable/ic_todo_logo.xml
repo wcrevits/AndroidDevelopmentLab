@@ -1,0 +1,38 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Top-Left Square (Green) with 'T' -->
+    <path
+        android:fillColor="#7CB342"
+        android:pathData="M4,4h42v42h-42z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M18,18h14v4h-5v14h-4v-14h-5z" />
+
+    <!-- Top-Right Square (Pink) with 'O' -->
+    <path
+        android:fillColor="#E91E63"
+        android:pathData="M54,4h42v42h-42z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M75,14c-4.4,0 -8,3.6 -8,8s3.6,8 8,8 8,-3.6 8,-8 -3.6,-8 -8,-8zM75,26c-2.2,0 -4,-1.8 -4,-4s1.8,-4 4,-4 4,1.8 4,4 -1.8,4 -4,4z" />
+
+    <!-- Bottom-Left Square (Blue) with 'D' -->
+    <path
+        android:fillColor="#03A9F4"
+        android:pathData="M4,54h42v42h-42z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M18,64h8c4.4,0 8,3.6 8,8s-3.6,8 -8,8h-8v-16zM22,76h4c2.2,0 4,-1.8 4,-4s-1.8,-4 -4,-4h-4v8z" />
+
+    <!-- Bottom-Right Square (Orange) with 'O' -->
+    <path
+        android:fillColor="#FF9800"
+        android:pathData="M54,54h42v42h-42z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M75,64c-4.4,0 -8,3.6 -8,8s3.6,8 8,8 8,-3.6 8,-8 -3.6,-8 -8,-8zM75,76c-2.2,0 -4,-1.8 -4,-4s1.8,-4 4,-4 4,1.8 4,4 -1.8,4 -4,4z" />
+</vector>
