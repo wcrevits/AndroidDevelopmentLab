@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import be.woutcrevits.androidapp.models.MockDataSource
-import be.woutcrevits.androidapp.ui.ToDetailScreen
+import be.woutcrevits.androidapp.ui.AddEditToDoScreen
 import be.woutcrevits.androidapp.ui.theme.AndroidAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,9 +21,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             AndroidAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    val sampleToDo = MockDataSource.getToDos()[1]
-                    ToDetailScreen(
+                    val sampleToDo = MockDataSource.getToDos().first()
+                    AddEditToDoScreen(
                         toDo = sampleToDo,
+                        onSave = { updatedToDo ->
+                            // Handle saving logic
+                        },
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -36,7 +39,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainActivityPreview() {
     AndroidAppTheme {
-        val sampleToDo = MockDataSource.getToDos()[1]
-        ToDetailScreen(toDo = sampleToDo)
+        AddEditToDoScreen()
     }
 }
