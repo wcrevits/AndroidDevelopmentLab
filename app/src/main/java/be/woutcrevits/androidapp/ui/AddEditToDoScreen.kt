@@ -1,8 +1,10 @@
 package be.woutcrevits.androidapp.ui
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -181,28 +183,57 @@ fun AddEditToDoScreen(
                 }
             }
 
-            // Save Button
-            Button(
-                onClick = {
-                    val updatedToDo = ToDo(
-                        number = toDo?.number ?: 1,
-                        title = title,
-                        description = description,
-                        createdByUser = toDo?.createdByUser ?: User(1, "default", "User", "", "", true),
-                        createOnDate = toDo?.createOnDate ?: Date(),
-                        assignedToUser = assignedToUser,
-                        finishedOnDate = if (acceptanceDone) (toDo?.finishedOnDate ?: Date()) else null,
-                        timeEstimated = toDo?.timeEstimated ?: 120,
-                        analysisDone = analysisDone,
-                        developmentDone = developmentDone,
-                        reviewAndTestingDone = reviewAndTestingDone,
-                        acceptanceDone = acceptanceDone
-                    )
-                    onSave(updatedToDo)
-                },
-                modifier = Modifier.fillMaxWidth()
+            // Cancel and Save Buttons side-by-side
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                Text("Save ToDo")
+                // Cancel Button (White background, blue text, blue border, rounded)
+                OutlinedButton(
+                    onClick = { /* No action needed */ },
+                    modifier = Modifier
+                        .weight(1f)
+                        .height(50.dp),
+                    shape = RoundedCornerShape(8.dp),
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = Color.White,
+                        contentColor = MaterialTheme.colorScheme.primary
+                    )
+                ) {
+                    Text("Cancel")
+                }
+
+                // Save Button (Blue background, white text, rounded)
+                Button(
+                    onClick = {
+                        val updatedToDo = ToDo(
+                            number = toDo?.number ?: 1,
+                            title = title,
+                            description = description,
+                            createdByUser = toDo?.createdByUser ?: User(1, "default", "User", "", "", true),
+                            createOnDate = toDo?.createOnDate ?: Date(),
+                            assignedToUser = assignedToUser,
+                            finishedOnDate = if (acceptanceDone) (toDo?.finishedOnDate ?: Date()) else null,
+                            timeEstimated = toDo?.timeEstimated ?: 120,
+                            analysisDone = analysisDone,
+                            developmentDone = developmentDone,
+                            reviewAndTestingDone = reviewAndTestingDone,
+                            acceptanceDone = acceptanceDone
+                        )
+                        onSave(updatedToDo)
+                    },
+                    modifier = Modifier
+                        .weight(1f)
+                        .height(50.dp),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = Color.White
+                    )
+                ) {
+                    Text("Save")
+                }
             }
         }
     }
