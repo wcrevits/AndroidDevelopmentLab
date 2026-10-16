@@ -63,7 +63,7 @@ fun AddEditToDoScreen(
                     modifier = Modifier.size(48.dp)
                 )
                 Text(
-                    text = if (toDo == null) "Add ToDo" else "Edit ToDo",
+                    text = "Add/Edit ToDo",
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold
                 )
